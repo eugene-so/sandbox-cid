@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  helloworld:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./HelloWorld:/HelloWorld
+    working_dir: /HelloWorld
