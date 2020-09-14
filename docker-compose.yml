@@ -7,3 +7,10 @@ services:
     volumes:
       - ./HelloWorld:/HelloWorld
     working_dir: /HelloWorld
+  sandbox:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/SandBox
+    working_dir: /SandBox
