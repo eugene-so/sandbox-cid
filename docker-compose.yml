@@ -1,16 +1,23 @@
 version: "3.8"
 services:
-  helloworld:
+  app-x86:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-x86
     volumes:
       - ./HelloWorld:/HelloWorld
     working_dir: /HelloWorld
-  sandbox:
+  app-arm:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-arm
+    volumes:
+      - ./HelloWorld:/HelloWorld
+    working_dir: /HelloWorld
+  unittests:
+    build:
+      context: ./
+      dockerfile: Dockerfile-x86
     volumes:
       - ./:/SandBox
     working_dir: /SandBox

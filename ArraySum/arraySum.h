@@ -2,7 +2,7 @@
 extern "C" {
 #endif
 
-int Arr(int a[]);
+int ArraySum(int a[]);
 
 #ifdef __cplusplus
 }
