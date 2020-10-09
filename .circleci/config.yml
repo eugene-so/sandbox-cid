@@ -15,5 +15,4 @@ jobs:
 workflows:
   Test:
     jobs:
-      - Docker
       - Unit-Test 
