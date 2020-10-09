@@ -1,5 +1,11 @@
 version: 2.1
 jobs:
+  Docker:
+    executor:
+      name: docker/docker
+      tag: '3.6'
+     steps:
+       - docker/install-docker-tools
   Unit-Test:
     docker:
       - image: cimg/base:2020.01
@@ -14,4 +20,5 @@ orbs:
 workflows:
   Test:
     jobs:
+      - Docker
       - Unit-Test 
