@@ -1,4 +1,4 @@
-# Orchestrate or schedule a set of jobs
+version: 2.1
 jobs:
   Unit-Test:
     docker:
