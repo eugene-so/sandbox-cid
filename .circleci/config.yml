@@ -1,22 +1,17 @@
 version: 2.1
+orbs:
+  docker: circleci/docker@1.4.0
 jobs:
-  Docker:
-    executor:
-      name: docker/docker
-      tag: '3.6'
-     steps:
-       - docker/install-docker-tools
   Unit-Test:
     docker:
       - image: cimg/base:2020.01
     steps:
       - checkout
+      - docker/install-docker-tools
       - run:
           name: Run Tests
           command: |
             docker-compose run unittests 
-orbs:
-  docker: circleci/docker@1.4.0
 workflows:
   Test:
     jobs:
