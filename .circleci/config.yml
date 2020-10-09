@@ -5,38 +5,9 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
-jobs:
-  Unit-Test:
-    steps:
-      - run:
-        name: Run Tests
-        command: |
-          docker-compose run unittests 
-  Application-x86:
-    steps:
-      - run:
-        name: Build x86 application
-        command: |
-          docker-compose run app-x86
-      - deploy:
-        name: Push x86 application image
-        command: |
-          mkdir image
-          cp HelloWorld/HelloWorld image/HelloWorld-x86
-  Application-arm:
-    steps:
-      - run:
-        name: Build x86 application
-        command: |
-          docker-compose run app-arm
-      - deploy:
-        name: Push arm application image
-        command: |
-          cp HelloWorld/HelloWorld image/HelloWorld-arm
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
-      - Unit-Test 
