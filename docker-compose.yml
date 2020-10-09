@@ -5,15 +5,15 @@ services:
       context: ./
       dockerfile: Dockerfile-x86
     volumes:
-      - ./HelloWorld:/HelloWorld
-    working_dir: /HelloWorld
+      - ./:/SandBox
+    working_dir: /SandBox
   app-arm:
     build:
       context: ./
       dockerfile: Dockerfile-arm
     volumes:
-      - ./HelloWorld:/HelloWorld
-    working_dir: /HelloWorld
+      - ./:/SandBox
+    working_dir: /SandBox
   unittests:
     build:
       context: ./

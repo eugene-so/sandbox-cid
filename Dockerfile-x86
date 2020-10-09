@@ -1,3 +1,4 @@
+### Generate custom docker image from base
 FROM debian
 RUN apt-get update
 RUN apt-get install -y \
@@ -8,3 +9,6 @@ RUN apt-get install -y \
 	qt5-default
 COPY scripts/bootstrap-x86.sh /tmp
 RUN /tmp/bootstrap-x86.sh
+
+### Eventually the above commands can be removed and replaced with loading a custom docker image
+# FROM custom-image

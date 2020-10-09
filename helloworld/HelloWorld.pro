@@ -2,8 +2,8 @@ CONFIG += qt warn_on
 TEMPLATE = app
 TARGET = HelloWorld
 
-INCLUDEPATH = ../arr
+INCLUDEPATH = ../ArraySum
 SOURCES = *.cpp \
-          ../arr/arr.c
-HEADERS = ../arr/arr.h
+          ../ArraySum/arraySum.c
+HEADERS = ../ArraySum/arraySum.h
 L
