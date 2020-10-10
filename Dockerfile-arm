@@ -3,6 +3,7 @@ FROM arm32v7/debian
 RUN apt-get update
 RUN apt-get install -y \
 	build-essential \
+	qemu-user \
 	qt5-qmake \
 	qt5-default
 COPY scripts/bootstrap-arm.sh /tmp

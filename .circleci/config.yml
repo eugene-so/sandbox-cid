@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Build x86 application
           command: |
-            docker-compose run app-x86 bash build-app-x86.sh
+            docker-compose run app-x86 build-app-x86.sh
             ls -al
   build-arm:
     machine: true
@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Build arm application
           command: |
-            docker-compose run app-arm bash build-app-arm.sh
+            docker-compose run app-arm build-app-arm.sh
             ls -al
 
 workflows:
@@ -32,5 +32,8 @@ workflows:
     jobs:
       - test
       - build-x86:
+          requires:
+            - test
+      - build-arm:
           requires:
             - test
