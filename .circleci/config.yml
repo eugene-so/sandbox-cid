@@ -21,6 +21,4 @@ workflows:
   test_and_build:
     jobs:
       - test
-      - app-arm:
-        requires:
-          - test
+      - app-arm
