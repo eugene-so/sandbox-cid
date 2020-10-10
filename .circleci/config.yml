@@ -8,6 +8,15 @@ jobs:
           name: Run Tests
           command: |
             docker-compose run unittests bash build-unittests.sh
+  build-x86:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build x86 application
+          command: |
+            docker-compose run app-arm bash build-app-x86.sh
+            ls -al
   build-arm:
     machine: true
     steps:
@@ -22,6 +31,6 @@ workflows:
   test_and_build:
     jobs:
       - test
-      - build-arm:
+      - build-x86:
           requires:
             - test
