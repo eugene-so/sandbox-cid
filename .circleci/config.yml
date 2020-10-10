@@ -24,5 +24,4 @@ workflows:
       - test
       - build-arm:
           requires:
-            - setup
             - test
