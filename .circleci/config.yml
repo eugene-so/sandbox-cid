@@ -15,7 +15,7 @@ jobs:
             ls -al
             docker --version
             docker-compose --version
-            docker-compose run unittests 
+            docker-compose run unittests bash build-unittests.sh
 workflows:
   Test:
     jobs:
