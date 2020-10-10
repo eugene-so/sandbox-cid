@@ -8,7 +8,7 @@ jobs:
           name: Run Tests
           command: |
             docker-compose run unittests bash build-unittests.sh
-  app-arm:
+  build-arm:
     machine: true
     steps:
       - run:
@@ -21,4 +21,6 @@ workflows:
   test_and_build:
     jobs:
       - test
-      - app-arm
+      - build-arm:
+        requires:
+          - test
