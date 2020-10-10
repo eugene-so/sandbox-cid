@@ -1,14 +1,9 @@
 version: 2.1
-orbs:
-  docker: circleci/docker@1.4.0
 jobs:
   Unit-Test:
-    docker:
-      - image: cimg/base:2020.01
+    machine: true
     steps:
       - checkout
-      - docker/install-docker-tools
-      - setup_remote_docker
       - run:
           name: Run Tests
           command: |
