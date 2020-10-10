@@ -1,17 +1,26 @@
 version: 2.1
 jobs:
-  Unit-Test:
+  unittest:
     machine: true
     steps:
       - checkout
       - run:
           name: Run Tests
           command: |
-            ls -al
-            docker --version
-            docker-compose --version
             docker-compose run unittests bash build-unittests.sh
+  app-arm:
+    machine: true
+    steps:
+      - run:
+          name: Build arm application
+          command: |
+            docker-compose run app-arm bash build-unittests.sh
+            ls -al
+
 workflows:
-  Test:
+  test_and_build:
     jobs:
-      - Unit-Test 
+      - unittest
+      - app-arm:
+        requires:
+          - unittest
