@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  unittest:
+  test:
     machine: true
     steps:
       - checkout
@@ -14,13 +14,13 @@ jobs:
       - run:
           name: Build arm application
           command: |
-            docker-compose run app-arm bash build-unittests.sh
+            docker-compose run app-arm bash build-app-x86.sh
             ls -al
 
 workflows:
   test_and_build:
     jobs:
-      - unittest
+      - test
       - app-arm:
         requires:
-          - unittest
+          - test
