@@ -16,7 +16,8 @@ jobs:
           name: Build x86 application
           command: |
             docker-compose run app-x86 build-app-x86.sh
-            ls -al
+            mkdir images
+            tar -cvf HelloWorld-x86.tar HelloWorld/HelloWorld
   build-arm:
     machine: true
     steps:
@@ -24,13 +25,21 @@ jobs:
       - run:
           name: Build arm application
           command: |
+            sudo apt-get install qemu-user
+            docker run --rm --privileged multiarch/qemu-user-static:register --reset
             docker-compose run app-arm build-app-arm.sh
-            ls -al
+            tar -cvf HelloWorld-arm.tar HelloWorld/HelloWorld
+            ls -al images
 
 workflows:
   test_and_build:
     jobs:
       - test
+      - build-x86:
+          requires:
+            - test
       - build-arm:
           requires:
             - test
+            - build-x86
+
