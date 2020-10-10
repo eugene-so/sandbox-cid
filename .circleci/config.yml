@@ -17,7 +17,7 @@ jobs:
           command: |
             docker-compose run app-x86 build-app-x86.sh
             mkdir images
-            tar -cvf HelloWorld-x86.tar HelloWorld/HelloWorld
+            tar -cvf images/HelloWorld-x86.tar HelloWorld/HelloWorld
   build-arm:
     machine: true
     steps:
@@ -28,7 +28,8 @@ jobs:
             sudo apt-get install qemu-user
             docker run --rm --privileged multiarch/qemu-user-static:register --reset
             docker-compose run app-arm build-app-arm.sh
-            tar -cvf HelloWorld-arm.tar HelloWorld/HelloWorld
+            mkdir images
+            tar -cvf images/HelloWorld-arm.tar HelloWorld/HelloWorld
             ls -al images
 
 workflows:
