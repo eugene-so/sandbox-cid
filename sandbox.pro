@@ -1,4 +1,4 @@
-CONFIG += qt warn_on
+CONFIG += warn_on
 TEMPLATE = subdirs
 SUBDIRS = ArraySum 
 
