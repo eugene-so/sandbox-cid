@@ -18,7 +18,9 @@ jobs:
             docker-compose run app-x86 bash build-app-x86.sh
             mkdir images
             tar -cvf images/HelloWorld-x86.tar HelloWorld/HelloWorld
-            tar -cvf ../bin/HelloWorld-x86.tar HelloWorld/HelloWorld
+      - store_artifacts:
+          path: images/HelloWorld-x86.tar
+          destination: HelloWorld-x86.tar
   build-arm:
     machine: true
     steps:
@@ -31,9 +33,9 @@ jobs:
             docker-compose run app-arm bash build-app-arm.sh
             mkdir images
             tar -cvf images/HelloWorld-arm.tar HelloWorld/HelloWorld
-            tar -cvf ../bin/HelloWorld-arm.tar HelloWorld/HelloWorld
-            ls -al images
-            ls -al ../bin
+      - store_artifacts:
+          path: images/HelloWorld-arm.tar
+          destination: HelloWorld-arm.tar
 
 workflows:
   test_and_build:

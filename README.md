@@ -70,4 +70,4 @@ Note: As most CID tools support x86 hardware only, the ARM docker base image mus
 A sample circleci configuration file is included for demonstration CID.
 
 ## deployment
-In this project, the final images are packaged into tar balls.  In a real world project, we would deliver the images to a permanent server like Amazon or Microsoft Azure.
+In this project, the final images are packaged into tar balls and uploaded to the circleCI artifacts temporary storage.  In a real world project, we would deliver the images to a permanent server like Amazon or Microsoft Azure.
