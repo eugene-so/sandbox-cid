@@ -4,6 +4,6 @@
 TEST(Arr, ReturnsSix)
 {
 	int array[5] = {0,1,2,3,4};
-	EXPECT_EQ(6, ArraySum(array));
+	EXPECT_EQ(5, ArraySum(array));
 
 }
